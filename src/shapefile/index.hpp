@@ -142,6 +142,33 @@ namespace Shapefile {
 		};
 	}
 
+	namespace Shx {
+		class IndexRecord {
+			/*
+				Position |     Field      |      Value     |  Type   | Order
+
+				Byte 0   | Offset         | Offset         | Integer | Big
+				Byte 4   | Content Length | Content Length | Integer | Big
+			*/
+			
+			public:
+				uint32_t offset;
+				uint32_t content_length;
+
+					 IndexRecord();
+				void Parse(std::ifstream& _file);
+		};
+
+		class Index {
+			public:
+				Shapefile::General::Header header;
+				std::vector<IndexRecord> records;
+
+				     Index();
+				void Parse(std::ifstream& _file);
+		};
+	}
+
 	class Parser {
 		public:
 			std::string path;
@@ -151,6 +178,7 @@ namespace Shapefile {
 			void Parse ();
 
             Shapefile::Shp::Index shp;
+            Shapefile::Shx::Index shx;
 
 		private:
 			std::ifstream shp_f;
