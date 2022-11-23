@@ -63,6 +63,8 @@ void Shapefile::Shp::Shape::Polygon::Parse(std::ifstream& _file) {
 		"\n\tY Minimum: " + std::to_string(bounding_box.y_min) +
 		"\n\tY Maximum: " + std::to_string(bounding_box.y_max)
 	);
+	Utils::UI::Note("Num Parts:      " + std::to_string(num_parts));
+	Utils::UI::Note("Num Points:     " + std::to_string(num_points));
 
 	#ifdef DEBUG_PRINT_PARTS
 
@@ -76,7 +78,7 @@ void Shapefile::Shp::Shape::Polygon::Parse(std::ifstream& _file) {
 	#ifdef DEBUG_PRINT_POINTS
 
 	Utils::UI::Note("Points:");
-	for (int i = 0; i < parts.size(); i ++) {
+	for (int i = 0; i < points.size(); i ++) {
 		Utils::UI::Note("\t" + std::to_string(points[i].x) + " " + std::to_string(points[i].y));
 	}
 

@@ -42,12 +42,18 @@ int Utils::Bitwise::IfstreamToBigEndianInt(std::ifstream& _file) {
 }
 
 double Utils::Bitwise::IfstreamToLittleEndianDouble(std::ifstream& _file) {
-	uint64_t a = Utils::Bitwise::IfstreamToLittleEndianInt(_file);
-	uint64_t b = Utils::Bitwise::IfstreamToLittleEndianInt(_file);
-	uint64_t c = a | b << 32;
+	char   bytes[8];
+	double dbl;
 
-	double d;
-	memcpy(&d, &c, sizeof(double));
+	_file.read(&bytes[0], 1);
+	_file.read(&bytes[1], 1);
+	_file.read(&bytes[2], 1);
+	_file.read(&bytes[3], 1);
+	_file.read(&bytes[4], 1);
+	_file.read(&bytes[5], 1);
+	_file.read(&bytes[6], 1);
+	_file.read(&bytes[7], 1);
 
-	return d;
+	memcpy(&dbl, &bytes, sizeof(double));
+	return dbl;
 }
