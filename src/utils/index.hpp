@@ -4,14 +4,12 @@
 namespace Utils {
 	namespace Bitwise {
 		template <typename T>
-		void   PrintBinary                 (T num);
+		void    PrintBinary                 (T num);
 
-		int    IfstreamToLittleEndianInt   (std::ifstream& _file);
-		int    IfstreamToBigEndianInt      (std::ifstream& _file);
-		double IfstreamToLittleEndianDouble(std::ifstream& _file);
-
-		void   IfstreamJumpInt             (std::ifstream& _file);
-		void   IfstreamJumpDouble          (std::ifstream& _file);
+		// uint8_t IfstreamToLittleEndianByte  (std::ifstream& _file);
+		int     IfstreamToLittleEndianInt   (std::ifstream& _file);
+		int     IfstreamToBigEndianInt      (std::ifstream& _file);
+		double  IfstreamToLittleEndianDouble(std::ifstream& _file);
 	}
 
 	namespace UI {
