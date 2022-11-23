@@ -1,0 +1,18 @@
+- Function names in PascalCase
+
+- Use classes when reasonable
+
+- Always explicit, never implicit.
+	- Don't do anything in the class declarition, other than setting up.
+
+- Make good use of header files
+
+- Function arguments are denoted with a proceeding _
+
+- Directory layout should mirror namespace layout
+
+- "Index" is the name of any primary facet of a logical grouping
+
+- & and * are written by the type, not by the variable name
+
+- Everything in one top-level header file, so that the layout can be devised in one file
