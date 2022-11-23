@@ -2,7 +2,7 @@
 #include "shapefile/index.hpp"
 
 int main() {
-	Shapefile::Parser parser("data/maps/gadm41_GBR_shp/gadm41_GBR_3");
+	Shapefile::Parser parser("data/maps/countries/World_Countries");
 
 	parser.Load();
     parser.Parse();
